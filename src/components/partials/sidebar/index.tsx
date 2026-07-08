@@ -12,17 +12,30 @@ import { Link } from 'react-router-dom';
 type SideBarProps = {
   userName?: string;
   setMobileNavOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  mobileNavOpen?: boolean;
 };
 
-const Sidebar = ({ userName, setMobileNavOpen }: SideBarProps) => {
+const Sidebar = ({
+  userName,
+  setMobileNavOpen,
+  mobileNavOpen,
+}: SideBarProps) => {
   return (
     <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col justify-between border-r border-border bg-bg-canvas p-6 lg:flex">
-      <SidebarInner userName={userName} setMobileNavOpen={setMobileNavOpen} />
+      <SidebarInner
+        userName={userName}
+        setMobileNavOpen={setMobileNavOpen}
+        mobileNavOpen={mobileNavOpen}
+      />
     </aside>
   );
 };
 
-const SidebarInner = ({ userName, setMobileNavOpen }: SideBarProps) => {
+const SidebarInner = ({
+  userName,
+  setMobileNavOpen,
+  mobileNavOpen,
+}: SideBarProps) => {
   const nav = [
     { icon: LayoutGrid, label: 'Dashboard', active: true },
     { icon: Wallet, label: 'Portfolio' },
@@ -40,12 +53,14 @@ const SidebarInner = ({ userName, setMobileNavOpen }: SideBarProps) => {
           Trove
         </Link>
 
-        <button
-          className="rounded-lg p-2 hover:bg-bg-default"
-          onClick={() => setMobileNavOpen(false)}
-        >
-          <X size={20} />
-        </button>
+        {mobileNavOpen && (
+          <button
+            className="rounded-lg p-2 hover:bg-bg-default"
+            onClick={() => setMobileNavOpen(false)}
+          >
+            <X size={20} />
+          </button>
+        )}
       </div>
       <nav className="flex-1 space-y-1">
         {nav.map(({ icon: Icon, label, active }) => (

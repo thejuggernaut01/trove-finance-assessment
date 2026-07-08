@@ -38,6 +38,7 @@ const Dashboard = () => {
               <SidebarInner
                 userName={data?.user.name}
                 setMobileNavOpen={setMobileNavOpen}
+                mobileNavOpen={mobileNavOpen}
               />
             </div>
           </div>
