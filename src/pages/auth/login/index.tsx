@@ -92,7 +92,6 @@ function Login() {
                     type="button"
                     onClick={() => setShow((s) => !s)}
                     className="absolute inset-y-0 right-3 flex items-center text-text-neutral hover:text-text-default"
-                    aria-label={show ? 'Hide password' : 'Show password'}
                   >
                     {show ? <EyeOff size={18} /> : <Eye size={18} />}
                   </button>

@@ -8,16 +8,13 @@ export interface baseRouteInterface<T> {
   stepLabel?: string;
 }
 
-export interface routeInterface<T = unknown>
-  extends baseRouteInterface<routeTypes> {
+export interface routeInterface<
+  T = unknown,
+> extends baseRouteInterface<routeTypes> {
   type: z.infer<typeof routeAccessTypes>;
   subRoutes?: baseRouteInterface<T>[];
 }
 
-export const routeTypeEnums = z.enum([
-  '',
-  '/',
-  'dashboard',
-]);
+export const routeTypeEnums = z.enum(['', '/', 'dashboard']);
 
 export type routeTypes = z.infer<typeof routeTypeEnums>;
