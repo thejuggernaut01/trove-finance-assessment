@@ -47,7 +47,7 @@ const Dashboard = () => {
         {/* Main */}
         <main className="flex min-h-screen w-full flex-1 flex-col">
           {/* Top bar */}
-          <header className="sticky top-0 z-30 flex items-center gap-3 border-b border-border bg-bg-canvas/80 px-4 py-4 backdrop-blur lg:px-8">
+          <header className="sticky top-0 z-30 flex items-center justify-between gap-3 border-b border-border bg-bg-canvas/80 px-4 py-4 backdrop-blur lg:px-8">
             <button
               className="rounded-lg p-2 text-text-default hover:bg-bg-default lg:hidden"
               onClick={() => setMobileNavOpen(true)}
